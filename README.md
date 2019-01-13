@@ -2,6 +2,8 @@
 
 This is the README for your extension "twitch-chat". After writing up a brief description, we recommend including the following sections.
 
+![](https://i.gyazo.com/b37c04b5398ffae277e4010cb09d3b25.png)
+
 ## Features
 
 Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.

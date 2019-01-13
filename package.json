@@ -4,8 +4,8 @@
 	"description": "Display Twitch chat as a tab",
 	"icon": "icon.png",
 	"galleryBanner": {
-		"color": "#4b367c",
-		"theme": "light"
+		"color": "#232323",
+		"theme": "dark"
 	},
 	"version": "0.0.1",
 	"publisher": "BlitZz",

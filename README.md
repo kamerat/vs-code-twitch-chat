@@ -41,6 +41,6 @@ Feel free to submit issues and pull requests over at the [github repository](htt
 
 ## Release Notes
 
-### 1.0.0
+### 0.0.1
 
 Initial release of Twitch Chat 🎉🎉

@@ -18,7 +18,7 @@ Twitch chat is an extention that integrates a twitch channel chat of your choice
 ## Requirements
 
  1. Twitch account
-	 a. oauth token
+ 2. Twitch oauth token
 
 ## Extension Settings
 

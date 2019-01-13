@@ -1,67 +1,43 @@
-# twitch-chat README
 
-This is the README for your extension "twitch-chat". After writing up a brief description, we recommend including the following sections.
+# twitch-chat
 
-![](https://i.gyazo.com/b37c04b5398ffae277e4010cb09d3b25.png)
+Twitch chat is an extention that integrates a twitch channel chat of your choice in to your code editor.
+
+![](https://i.gyazo.com/efd5f97f96c312faa808fd718705436a.gif)
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+ **Twitch chat in tab:** ![](https://i.gyazo.com/b37c04b5398ffae277e4010cb09d3b25.png)
 
-For example if there is an image subfolder under your extension project workspace:
+**Chat notifications** *-When chat tab is not focused*
+ 1. Popup new chats (Optional)
+ 2. Title indicator
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+![enter image description here](https://i.gyazo.com/d268441028f9f78fa288eba87ace0b52.png)
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+ 1. Twitch account
+ 2. Twitch oauth token
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
 This extension contributes the following settings:
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+* `twitch.alert`: enable/disable chat popup alerts
+* `twitch.channel`: Twitch channel you want to chat in 
+* `twitch.username`: Your twitch username
+* `twitch.oauth`: your twitch oauth token. `oauth:<YOUR TOKEN>`. 
+	* You can generate one at [n0.no/twitch](https://n0.no/twitch/) or [create one yourself](https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/).
 
 ## Known Issues
+Somtimes the chat does not show the user's correct color.(It is returned as `null` from api)🤷‍♂️
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+## Contributing
+Feel free to submit issues and pull requests over at the [github repository](https://github.com/BlitZz96/vs-code-twitch-chat).
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 1.0.0
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Initial release of Twitch Chat 🎉🎉

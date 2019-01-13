@@ -1,6 +1,6 @@
 {
 	"name": "twitch-chat",
-	"displayName": "Twitch Chat tabs",
+	"displayName": "Twitch Chat",
 	"description": "Display Twitch chat as a tab",
 	"icon": "icon.png",
 	"galleryBanner": {

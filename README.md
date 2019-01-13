@@ -1,5 +1,5 @@
 
-# twitch-chat
+# Twitch Chat
 
 Twitch chat is an extention that integrates a twitch channel chat of your choice in to your code editor.
 
@@ -7,13 +7,14 @@ Twitch chat is an extention that integrates a twitch channel chat of your choice
 
 ## Features
 
- **Twitch chat in tab:** ![](https://i.gyazo.com/b37c04b5398ffae277e4010cb09d3b25.png)
+ **Twitch chat in tab:**
+ ![](https://i.gyazo.com/b37c04b5398ffae277e4010cb09d3b25.png)
 
 **Chat notifications** *-When chat tab is not focused*
  1. Popup new chats (Optional)
  2. Title indicator
 
-![enter image description here](https://i.gyazo.com/d268441028f9f78fa288eba87ace0b52.png)
+![](https://i.gyazo.com/d268441028f9f78fa288eba87ace0b52.png)
 
 ## Requirements
 

@@ -7,7 +7,7 @@
 		"color": "#232323",
 		"theme": "dark"
 	},
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"publisher": "BlitZz",
 	"keywords": ["Twitch", "Chat", "Stream", "tabs"],
 	"engines": {

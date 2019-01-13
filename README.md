@@ -41,6 +41,10 @@ Feel free to submit issues and pull requests over at the [github repository](htt
 
 ## Release Notes
 
+### 0.0.2
+
+Fix wrong marketplace color
+
 ### 0.0.1
 
 Initial release of Twitch Chat 🎉🎉

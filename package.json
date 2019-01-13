@@ -1,14 +1,28 @@
 {
 	"name": "twitch-chat",
-	"displayName": "twitch-chat",
-	"description": "Twitch chat popout",
+	"displayName": "Twitch Chat tabs",
+	"description": "Display Twitch chat as a tab",
+	"icon": "icon.png",
+	"galleryBanner": {
+		"color": "#4b367c",
+		"theme": "light"
+	},
 	"version": "0.0.1",
+	"publisher": "BlitZz",
+	"keywords": ["Twitch", "Chat", "Stream", "tabs"],
 	"engines": {
 		"vscode": "^1.30.0"
 	},
 	"categories": [
 		"Other"
 	],
+	"bugs": {
+		"url": "https://github.com/BlitZz96/vs-code-twitch-chat/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/BlitZz96/vs-code-twitch-chat.git"
+	},
 	"activationEvents": [
 		"onCommand:twitch.open"
 	],
@@ -22,12 +36,12 @@
 		],
 		"configuration": {
 			"type": "object",
-			"title": "Twitch-chat settings",
+			"title": "Twitch Chat",
 			"properties": {
 				"twitch.oauth": {
 					"type": "string",
 					"default": "",
-					"description": "DONT SHOW THIS IN STREAM!!!!, Your twitch token, Generate a token here: http://www.twitchapps.com/tmi"
+					"markdownDescription": "Your twitch token, must start with `oauth:`. Generate a token here: [n0.no/twitch](https://www.n0.no/twitch). `Do not leak to stream!` *(If you do, [delete it](https://www.twitch.tv/settings/connections))*"
 				},
 				"twitch.username": {
 					"type": "string",
@@ -36,8 +50,13 @@
 				},
 				"twitch.channel": {
 					"type": "string",
-					"default": "",
-					"description": "The channel name. For Twitch, use [your channel/user name] without a hashtag."
+					"default": "bobross",
+					"description": "Your Twitch channel/user name"
+				},
+				"twitch.alert": {
+					"type": "boolean",
+					"default": "false",
+					"markdownDescription": "Display popup alerts on new messages *(If chat window is not focused)*"
 				}
 			}
 		}

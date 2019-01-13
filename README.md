@@ -8,6 +8,7 @@ Twitch chat is an extention that integrates a twitch channel chat of your choice
 ## Features
 
  **Twitch chat in tab:**
+ 1. Draggable & responsive
 
 ![](https://i.gyazo.com/b37c04b5398ffae277e4010cb09d3b25.png)
 

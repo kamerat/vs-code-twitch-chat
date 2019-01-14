@@ -23,6 +23,17 @@ Twitch chat is an extention that integrates a twitch channel chat of your choice
  1. Twitch account
  2. Twitch oauth token
 
+## How to use
+
+ 1. Navigate to `Settings > Extensions > Twitch Chat`
+ 2. Add `channel`, `username` and your `oauth token`*
+ 3. Reload/Restart VS Code
+ 4. Open the command menu; `[ctrl]`+`[shift]`+`[p]` (or whatever you have bound it to)
+ 5. Type `Twitch: Open chat`
+ 6. Tap your shoulder(or mine *\*wink\**) and say *"Good job!"*
+
+>\* You can generate a token at [n0.no/twitch](https://n0.no/twitch/) or [create one yourself](https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/).
+
 ## Extension Settings
 
 This extension contributes the following settings:

@@ -52,6 +52,10 @@ Feel free to submit issues and pull requests over at the [github repository](htt
 
 ## Release Notes
 
+### 0.0.3
+
+Add "How to use" section in README & fail-checks if none provided
+
 ### 0.0.2
 
 Fix wrong marketplace color

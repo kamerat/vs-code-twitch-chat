@@ -1,16 +1,33 @@
 //TODO: oauth auto added to settings: https://stackoverflow.com/questions/49467421/updating-vs-code-user-settings-via-an-extension
-//TODO: add emoticons: https://www.npmjs.com/package/twitch-emoticons
+//TODO: Add channel spesific emotes - https://github.com/JamesFrost/twitch-emoji#add-channelname--callback-
+// 			- Find workaround for XMLHttpRequest in .add() above (Or fork it and make it .fetch()?)
 //TODO: Add user actions (ban, timeout, etc)
 //TODO: Add viewer counter?
 
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
+
+const config = vscode.workspace.getConfiguration("twitch");
 
 const TwitchBot = require('twitch-bot')
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+const twitchEmoji = require('twitch-emoji')
+
+const { Autolinker } = require('autolinker');
+var autolinker = new Autolinker({
+	urls: {
+		schemeMatches: true,
+		wwwMatches: true,
+		tldMatches: true
+	},
+	email: false,
+	phone: false,
+	mention: false,
+	hashtag: false,
+
+	stripPrefix: false,
+	stripTrailingSlash: true,
+	newWindow: true,
+});
 
 let messages = [{ 'markup': '<p>Welcome to the chat room!</p>' }]
 
@@ -18,7 +35,6 @@ let messages = [{ 'markup': '<p>Welcome to the chat room!</p>' }]
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-	const config = vscode.workspace.getConfiguration("twitch");
 	const channel = config.channel
 	const username = config.username
 	const oauth = config.oauth
@@ -162,8 +178,14 @@ function getWebviewContent(messages) {
 				.chat .message {
 					padding: 5px 0;
 				}
-				.chat .message p{
+				.chat .message p {
 					margin: 0;
+					display: flex;
+					align-items: center;
+					flex-wrap: wrap;
+				}
+				.chat .message img {
+					margin: 0 1px;
 				}
 
 				.chat-input {
@@ -240,15 +262,18 @@ function getWebviewContent(messages) {
 }
 
 function pushMessage(msg, panel) {
+	// Parse message for emotes
+	const parsed = twitchEmoji.parse(msg.message, { emojiSize: 'small', channel: config.channel })
 	//Create new key that contains our markup for displaying the message.
 	msg.markup = `
 		<div class="message">
-			<p><span style="color:${msg.color ? msg.color : ''}">${msg.display_name}</span>: ${msg.message}</p>
-		</div>
-	`
+			<p><span style="color:${msg.color ? msg.color : ''}">${msg.display_name}</span>: ${autolinker.link(parsed)}</p>
+		</div>`
+
 	//Push to our list of already cached session messages 
 	messages.push(msg)
 
+	// Emit to live webview so we do not have to update whole dom with getWebviewContent
 	panel.webview.postMessage({ command: 'message', markup: msg.markup });
 }
 

@@ -3,12 +3,13 @@
 
 Twitch chat is an extention that integrates a twitch channel chat of your choice in to your code editor.
 
-![](https://i.gyazo.com/efd5f97f96c312faa808fd718705436a.gif)
+![](https://i.gyazo.com/07c6fa0478cf31f2d0a92a75e7dd790b.gif)
 
 ## Features
 
  **Twitch chat in tab:**
  1. Draggable & responsive
+ 2. Emotes & Links
 
 ![](https://i.gyazo.com/b37c04b5398ffae277e4010cb09d3b25.png)
 
@@ -51,6 +52,10 @@ Somtimes the chat does not show the user's correct color.(It is returned as `nul
 Feel free to submit issues and pull requests over at the [github repository](https://github.com/BlitZz96/vs-code-twitch-chat).
 
 ## Release Notes
+
+### 0.0.4
+
+Now supports Emotes & [links]()! ![](https://static-cdn.jtvnw.net/emoticons/v1/88/1.0)
 
 ### 0.0.3
 

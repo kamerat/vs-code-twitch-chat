@@ -35,6 +35,16 @@ function activate(context) {
 	let Bot = undefined
 	let unread = 0
 	
+	if (oauth.length === 0) {
+		return vscode.window.showErrorMessage('Twitch Chat: Please provide oauth token in settings');
+	}
+	if (username.length === 0) {
+		return vscode.window.showErrorMessage('Twitch Chat: Please provide your twitch username in settings');
+	}
+	if (channel.length === 0) {
+		return vscode.window.showErrorMessage('Twitch Chat: Please provide twitch channel in settings');
+	}
+	
 	let disposable = vscode.commands.registerCommand('twitch.open', function () {
 		const columnToShowIn = vscode.window.activeTextEditor
 			? vscode.window.activeTextEditor.viewColumn

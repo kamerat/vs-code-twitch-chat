@@ -7,9 +7,15 @@
 		"color": "#232323",
 		"theme": "dark"
 	},
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"publisher": "BlitZz",
-	"keywords": ["Twitch", "Twitc", "Chat", "Stream", "Tabs"],
+	"keywords": [
+		"Twitch",
+		"Twitc",
+		"Chat",
+		"Stream",
+		"Tabs"
+	],
 	"engines": {
 		"vscode": "^1.30.0"
 	},
@@ -73,6 +79,8 @@
 		"@types/mocha": "^2.2.42"
 	},
 	"dependencies": {
-		"twitch-bot": "^1.2.5"
+		"autolinker": "^2.2.2",
+		"twitch-bot": "^1.2.5",
+		"twitch-emoji": "^0.2.209"
 	}
 }

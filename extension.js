@@ -14,15 +14,6 @@ const TwitchBot = require('twitch-bot')
 
 let messages = [{ 'markup': '<p>Welcome to the chat room!</p>' }]
 
-// for (let index = 0; index < 100; index++) {
-// 	messages.push({
-// 		'markup': `
-// 		<div class="message">
-// 			<p><span style="color:#8a2be2;">the_blitzz</span>: Hello, this is a message</p>
-// 		</div>
-// 	` })
-// }
-
 /**
  * @param {vscode.ExtensionContext} context
  */

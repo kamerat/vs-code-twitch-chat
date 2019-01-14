@@ -9,7 +9,7 @@
 	},
 	"version": "0.0.2",
 	"publisher": "BlitZz",
-	"keywords": ["Twitch", "Chat", "Stream", "tabs"],
+	"keywords": ["Twitch", "Twitc", "Chat", "Stream", "Tabs"],
 	"engines": {
 		"vscode": "^1.30.0"
 	},

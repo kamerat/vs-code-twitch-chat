@@ -81,6 +81,6 @@
 	"dependencies": {
 		"autolinker": "^2.2.2",
 		"twitch-bot": "^1.2.5",
-		"twitch-emoji": "^0.2.209"
+		"twitch-emoticons": "github:ngajhede/twitch-emoticons"
 	}
 }

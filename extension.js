@@ -10,7 +10,12 @@ const config = vscode.workspace.getConfiguration("twitch");
 
 const TwitchBot = require('twitch-bot')
 
-const twitchEmoji = require('twitch-emoji')
+const { EmoteFetcher, EmoteParser, Constants } = require('twitch-emoticons');
+const fetcher = new EmoteFetcher()
+const parser = new EmoteParser(fetcher, {
+    type: 'html',
+    match: /(\w+)/g
+})
 
 const { Autolinker } = require('autolinker');
 var autolinker = new Autolinker({
@@ -34,13 +39,29 @@ let messages = [{ 'markup': '<p>Welcome to the chat room!</p>' }]
 /**
  * @param {vscode.ExtensionContext} context
  */
-function activate(context) {
+async function activate(context) {
 	const channel = config.channel
 	const username = config.username
 	const oauth = config.oauth
 	let panel = undefined
 	let Bot = undefined
 	let unread = 0
+	let room = null
+
+	async function memoiseRoomAndAddEmotes (id) {
+		if (room !== null) return
+    		room = id
+    		try {
+			await fetcher.fetchTwitchEmotes(null)
+			await fetcher.fetchBTTVEmotes(null)
+			
+			await fetcher.fetchTwitchEmotes(room)
+			await fetcher.fetchBTTVEmotes(channel)
+			await fetcher.fetchFFZEmotes(channel)
+		} catch (error) {
+			console.error(error)
+		}
+	}
 	
 	if (oauth.length === 0) {
 		return vscode.window.showErrorMessage('Twitch Chat: Please provide oauth token in settings');
@@ -82,9 +103,11 @@ function activate(context) {
 		}
 
 		Bot.on('join', () => {
+			
 			console.log('Successfully connected to twitch chat.')
 
-			Bot.on('message', chatter => {
+			Bot.on('message', async chatter => {
+				await memoiseRoomAndAddEmotes(chatter.room_id)
 				// Add notification to title if not active
 				if (!panel.visible) {
 					unread++
@@ -261,9 +284,10 @@ function getWebviewContent(messages) {
 		</html>`;
 }
 
-function pushMessage(msg, panel) {
+async function pushMessage(msg, panel) {
 	// Parse message for emotes
-	const parsed = twitchEmoji.parse(msg.message, { emojiSize: 'small', channel: config.channel })
+	const parsed = parser.parse(msg.message)
+	
 	//Create new key that contains our markup for displaying the message.
 	msg.markup = `
 		<div class="message">

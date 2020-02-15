@@ -50,8 +50,8 @@ async function activate(context) {
 
 	async function memoiseRoomAndAddEmotes (id) {
 		if (room !== null) return
-    room = id
-    try {
+    		room = id
+    		try {
 			await fetcher.fetchTwitchEmotes(null)
 			await fetcher.fetchBTTVEmotes(null)
 			
@@ -287,9 +287,7 @@ function getWebviewContent(messages) {
 async function pushMessage(msg, panel) {
 	// Parse message for emotes
 	const parsed = parser.parse(msg.message)
-
-	//const parsed = twitchEmoji.parse(msg.message, { emojiSize: 'small', channel: config.channel })
-
+	
 	//Create new key that contains our markup for displaying the message.
 	msg.markup = `
 		<div class="message">

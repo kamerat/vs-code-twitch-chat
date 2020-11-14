@@ -284,6 +284,33 @@ function getWebviewContent(messages) {
 		</html>`;
 }
 
+function getColorForUser({display_name, color}) {
+	const default_colors = [
+		["Red", "#FF0000"],
+		["Blue", "#0000FF"],
+		["Green", "#00FF00"],
+		["FireBrick", "#B22222"],
+		["Coral", "#FF7F50"],
+		["YellowGreen", "#9ACD32"],
+		["OrangeRed", "#FF4500"],
+		["SeaGreen", "#2E8B57"],
+		["GoldenRod", "#DAA520"],
+		["Chocolate", "#D2691E"],
+		["CadetBlue", "#5F9EA0"],
+		["DodgerBlue", "#1E90FF"],
+		["HotPink", "#FF69B4"],
+		["BlueViolet", "#8A2BE2"],
+		["SpringGreen", "#00FF7F"]
+	];
+
+	if (color) {
+	  	return color;
+	} else {
+		const n = display_name.charCodeAt(0) + display_name.charCodeAt(display_name.length - 1);
+		return default_colors[n % default_colors.length][1];
+	}
+}
+
 async function pushMessage(msg, panel) {
 	// Parse message for emotes
 	const parsed = parser.parse(msg.message)
@@ -291,7 +318,7 @@ async function pushMessage(msg, panel) {
 	//Create new key that contains our markup for displaying the message.
 	msg.markup = `
 		<div class="message">
-			<p><span style="color:${msg.color ? msg.color : ''}">${msg.display_name}</span>: ${autolinker.link(parsed)}</p>
+			<p><span style="color:${getColorForUser(msg)}">${msg.display_name}</span>: ${autolinker.link(parsed)}</p>
 		</div>`
 
 	//Push to our list of already cached session messages 

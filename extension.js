@@ -17,6 +17,12 @@ const parser = new EmoteParser(fetcher, {
     match: /(\w+)/g
 })
 
+const createDOMPurify = require('dompurify');
+const { JSDOM } = require('jsdom');
+
+const window = new JSDOM('').window;
+const DOMPurify = createDOMPurify(window);
+
 const { Autolinker } = require('autolinker');
 var autolinker = new Autolinker({
 	urls: {
@@ -313,12 +319,14 @@ function getColorForUser({display_name, color}) {
 
 async function pushMessage(msg, panel) {
 	// Parse message for emotes
-	const parsed = parser.parse(msg.message)
+	const parsed = parser.parse(msg.message);
+	const autolinked = autolinker.link(parsed);
+	const sanitizedHTML = DOMPurify.sanitize(autolinked, {ALLOWED_TAGS: ['a'], ALLOWED_ATTR: ['href']});
 	
 	//Create new key that contains our markup for displaying the message.
 	msg.markup = `
 		<div class="message">
-			<p><span style="color:${getColorForUser(msg)}">${msg.display_name}</span>: ${autolinker.link(parsed)}</p>
+			<p><span style="color:${getColorForUser(msg)}">${msg.display_name}</span>: ${sanitizedHTML}</p>
 		</div>`
 
 	//Push to our list of already cached session messages 

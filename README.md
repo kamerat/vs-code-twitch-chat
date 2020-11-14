@@ -53,6 +53,17 @@ Feel free to submit issues and pull requests over at the [github repository](htt
 
 ## Release Notes
 
+
+### 0.0.5
+
+Added
+* Random color for twitch users who has not yet set a color
+* BTTV and FFZ support - Credit: @ngajhede
+
+Fixed
+* Bug where chat was not showing if vscode settings `username` had capital letter
+* Bump packages
+
 ### 0.0.4
 
 Now supports Emotes & [links]()! ![](https://static-cdn.jtvnw.net/emoticons/v1/88/1.0)

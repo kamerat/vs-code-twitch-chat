@@ -46,7 +46,7 @@ This extension contributes the following settings:
 	* You can generate one at [n0.no/twitch](https://n0.no/twitch/) or [create one yourself](https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/).
 
 ## Known Issues
-Somtimes the chat does not show the user's correct color.(It is returned as `null` from api)🤷‍♂️
+🦗🦗🦗
 
 ## Contributing
 Feel free to submit issues and pull requests over at the [github repository](https://github.com/BlitZz96/vs-code-twitch-chat).
@@ -54,7 +54,7 @@ Feel free to submit issues and pull requests over at the [github repository](htt
 ## Release Notes
 
 
-## 0.0.6
+### 0.0.6
 Fixed
 * Sanitized user input 🐛👮
 ### 0.0.5

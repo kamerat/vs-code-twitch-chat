@@ -54,6 +54,9 @@ Feel free to submit issues and pull requests over at the [github repository](htt
 ## Release Notes
 
 
+## 0.0.6
+Fixed
+* Sanitized user input 🐛👮
 ### 0.0.5
 
 Added

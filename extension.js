@@ -41,7 +41,7 @@ let messages = [{ 'markup': '<p>Welcome to the chat room!</p>' }]
  */
 async function activate(context) {
 	const channel = config.channel
-	const username = config.username
+	const username = String(config.username).toLowerCase()
 	const oauth = config.oauth
 	let panel = undefined
 	let Bot = undefined

@@ -7,7 +7,7 @@
 		"color": "#232323",
 		"theme": "dark"
 	},
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"publisher": "BlitZz",
 	"keywords": [
 		"Twitch",
@@ -82,6 +82,7 @@
 		"autolinker": "^2.2.2",
 		"dompurify": "^2.2.2",
 		"jsdom": "^16.4.0",
+		"request": "^2.88.2",
 		"twitch-bot": "^1.2.5",
 		"twitch-emoticons": "github:ngajhede/twitch-emoticons"
 	}

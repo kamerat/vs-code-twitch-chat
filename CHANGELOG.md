@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to the "twitch-chat" extension will be documented in this file.
-
+# 0.0.8
+Fixed
+* Bug where emotes did not work 
+   - 3rd party package did not have bttv 3 api
+   - I 🦆'ed the emotes when sanitizing
 # 0.0.7
 Fixed
 * Bug where twitch.open command would crash

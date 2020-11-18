@@ -10,7 +10,7 @@ const config = vscode.workspace.getConfiguration("twitch");
 
 const TwitchBot = require('twitch-bot')
 
-const { EmoteFetcher, EmoteParser, Constants } = require('twitch-emoticons');
+const { EmoteFetcher, EmoteParser } = require('twitch-emoticons');
 const fetcher = new EmoteFetcher()
 const parser = new EmoteParser(fetcher, {
     type: 'html',
@@ -54,18 +54,40 @@ async function activate(context) {
 	let unread = 0
 	let room = null
 
+
 	async function memoiseRoomAndAddEmotes (id) {
-		if (room !== null) return
-    		room = id
-    		try {
-			await fetcher.fetchTwitchEmotes(null)
-			await fetcher.fetchBTTVEmotes(null)
-			
-			await fetcher.fetchTwitchEmotes(room)
-			await fetcher.fetchBTTVEmotes(channel)
-			await fetcher.fetchFFZEmotes(channel)
+		// Only run function once
+		if (room !== null) {
+			return
+		}
+
+		room = id
+
+		try {
+			console.log('BTTV-Global', await fetcher.fetchBTTVEmotes(null))
 		} catch (error) {
-			console.error(error)
+			console.log('BTTV-Global', error)
+		}
+
+		try {
+			console.log('fetchTwitchEmotes-Global', await fetcher.fetchTwitchEmotes(null))
+		} catch (error) {
+			console.log('fetchTwitchEmotes-Global', error)
+		}
+		try {
+			console.log('fetchTwitchEmotes-room', await fetcher.fetchTwitchEmotes(room))
+		} catch (error) {
+			console.log('fetchTwitchEmotes-room', error)
+		}
+		try {
+			console.log('fetchBTTVEmotes-channel', await fetcher.fetchBTTVEmotes(id))
+		} catch (error) {
+			console.log('fetchBTTVEmotes-channel', error)
+		}
+		try {
+			console.log('fetchFFZEmotes-channel', await fetcher.fetchFFZEmotes(channel))
+		} catch (error) {
+			console.log('fetchFFZEmotes-channel', error)
 		}
 	}
 	
@@ -318,15 +340,15 @@ function getColorForUser({display_name, color}) {
 }
 
 async function pushMessage(msg, panel) {
+	const sanitizedUserInput = DOMPurify.sanitize(msg.message, {ALLOWED_TAGS: [], ALLOWED_ATTR: []});
 	// Parse message for emotes
-	const parsed = parser.parse(msg.message);
+	const parsed = parser.parse(sanitizedUserInput);
 	const autolinked = autolinker.link(parsed);
-	const sanitizedHTML = DOMPurify.sanitize(autolinked, {ALLOWED_TAGS: ['a'], ALLOWED_ATTR: ['href']});
 	
 	//Create new key that contains our markup for displaying the message.
 	msg.markup = `
 		<div class="message">
-			<p><span style="color:${getColorForUser(msg)}">${msg.display_name}</span>: ${sanitizedHTML}</p>
+			<p><span style="color:${getColorForUser(msg)}">${msg.display_name}</span>: ${autolinked}</p>
 		</div>`
 
 	//Push to our list of already cached session messages 

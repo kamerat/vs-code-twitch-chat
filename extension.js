@@ -227,6 +227,7 @@ function getWebviewContent(messages) {
 				body, html {
 					height: 100%;
 					overflow: hidden;
+					font-size: ${config.fontSize || 'initial'};
 				}
 				.chat {
 					height: calc(100% - 105px);
@@ -259,6 +260,7 @@ function getWebviewContent(messages) {
 					color: #433f4a;
 					font-family: inherit;
 					line-height: 1.5;
+					font-size: ${config.fontSize || 'initial'};
 					outline: 0;
 					padding: 10px 10px;
 					resize: none;

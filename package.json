@@ -63,6 +63,11 @@
 					"type": "boolean",
 					"default": "false",
 					"markdownDescription": "Display popup alerts on new messages *(If chat window is not focused)*"
+				},
+				"twitch.fontSize": {
+					"type": "string",
+					"default": "14px",
+					"markdownDescription": "Sets the chat window's font size"
 				}
 			}
 		}

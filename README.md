@@ -40,6 +40,7 @@ This extension contributes the following settings:
 
 | Setting         | Description                        | Type                        |
 |-----------------|------------------------------------|-----------------------------|
+| twitch.fontSize | Sets font size of chat window	   | String ~ `14px`             |
 | twitch.alert    | Enable/disable chat popup alerts   | Boolean ~ `false`           |
 | twitch.channel  | Twitch channel you want to chat in | String ~ `bobross`          |
 | twitch.username | Your twitch username               | String ~ `mytwitchname`     |

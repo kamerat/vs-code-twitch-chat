@@ -1,5 +1,13 @@
 # Change Log
 All notable changes to the "twitch-chat" extension will be documented in this file.
+# 0.0.9
+Added
+* Font size setting
+  - New setting under extention's settings in vscode to let users change font size of window
+* Channel-spesific twitch emotes
+  - You can now see the channel's custom emotes. Note: cross channel emotes is not supported.  
+Replaced
+* Outdated twitchemotes api with twitch's own emotes api v/helix
 # 0.0.8
 Fixed
 * Bug where emotes did not work 

@@ -7,8 +7,8 @@
 		"color": "#232323",
 		"theme": "dark"
 	},
-	"version": "0.0.8",
-	"publisher": "BlitZz",
+	"version": "0.0.9",
+	"publisher": "kamerat",
 	"keywords": [
 		"Twitch",
 		"Twitc",
@@ -23,11 +23,11 @@
 		"Other"
 	],
 	"bugs": {
-		"url": "https://github.com/BlitZz96/vs-code-twitch-chat/issues"
+		"url": "https://github.com/kamerat/vs-code-twitch-chat/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/BlitZz96/vs-code-twitch-chat.git"
+		"url": "https://github.com/kamerat/vs-code-twitch-chat.git"
 	},
 	"activationEvents": [
 		"onCommand:twitch.open"

@@ -11,7 +11,14 @@ const config = vscode.workspace.getConfiguration("twitch");
 const TwitchBot = require('twitch-bot')
 
 const { EmoteFetcher, EmoteParser } = require('twitch-emoticons');
-const fetcher = new EmoteFetcher()
+const fetcher = new EmoteFetcher({
+	headers: {
+		twitch: {
+			'Authorization': `${config.oauth.replace('oauth:', 'Bearer ')}`,
+			'client-id': '9058tygryan4mexx61jc39a30wl4zl',
+		},
+	},
+})
 const parser = new EmoteParser(fetcher, {
     type: 'html',
     match: /(\w+)/g
@@ -358,8 +365,6 @@ async function pushMessage(msg, panel) {
 	panel.webview.postMessage({ command: 'message', markup: msg.markup });
 }
 
-
-exports.activate = activate;
 
 // this method is called when your extension is deactivated
 function deactivate() {

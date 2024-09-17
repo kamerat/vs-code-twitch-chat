@@ -85,7 +85,7 @@
 	},
 	"dependencies": {
 		"autolinker": "^2.2.2",
-		"dompurify": "^2.2.2",
+		"dompurify": "^2.5.4",
 		"jsdom": "^16.4.0",
 		"request": "^2.88.2",
 		"twitch-bot": "^1.2.5",
